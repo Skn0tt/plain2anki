@@ -1,0 +1,21 @@
+{
+  "name": "plain2anki",
+  "version": "1.0.0",
+  "description": "Write your Anki questions in plain text, import them using plain2anki.",
+  "main": "index.js",
+  "author": "Simon Knott <info@simonknott.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "parcel": "^1.12.4",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3"
+  }
+}
