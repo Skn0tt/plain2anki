@@ -17,5 +17,8 @@
     "parcel": "^1.12.4",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.4.6"
   }
 }
