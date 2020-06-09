@@ -33,6 +33,7 @@ Some rules for parsing your plain text:
 - Empty lines are ignored.
 - Leading enumeration marks like `-`, `*`, or `+` are ignored.
 - The last question mark in a line marks the end of the question.
+- If there's no question mark, e.g. in a "Define X." kind of card, the first "." marks the end of the question.
 - Both questions and answers are trimmed of surrounding whitespace.
 
 ## Contributing
