@@ -31,7 +31,7 @@ export function parsePlainTextCards(cards: PlainTextCard[]): Card[] {
 }
 
 export function serializeCardsAsCSV(cards: Card[]): AnkiCSV {
-  return cards.map(c => `${c.question};${c.answer}`).join("\n");
+  return cards.map(c => `"${c.question}";"${c.answer}"`).join("\n");
 }
 
 export function plain2anki(plain: PlainTextFile): AnkiCSV {

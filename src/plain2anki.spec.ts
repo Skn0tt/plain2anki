@@ -23,6 +23,6 @@ describe("serializeCardsAsCSV", () => {
         question: "Q2",
         answer: "A2"
       }
-    ])).toBe("Q1;A1\nQ2;A2")
+    ])).toBe('"Q1";"A1"\n"Q2";"A2"')
   })
 })
