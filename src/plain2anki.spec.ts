@@ -10,6 +10,15 @@ describe("parsePlainTextCard", () => {
       answer: "Answer"
     })
   })
+
+  describe("when not containing a question mark", () => {
+    it("splits at the first stop", () => {
+      expect(parsePlainTextCard("DefineA.AnswerA")).toEqual({
+        question: "DefineA.",
+        answer: "AnswerA"
+      })
+    })
+  })
 })
 
 describe("serializeCardsAsCSV", () => {

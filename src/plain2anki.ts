@@ -17,8 +17,11 @@ export function splitFileToCards(file: PlainTextFile): PlainTextCard[] {
 
 export function parsePlainTextCard(card: PlainTextCard): Card {
   const indexOfLastQuestionMark = card.lastIndexOf("?");
-  const question = card.substring(0, indexOfLastQuestionMark + 1);
-  const answer = card.substring(indexOfLastQuestionMark + 1);
+  const indexOfFirstStop = card.indexOf(".");
+  const splitIndex = indexOfLastQuestionMark === -1 ? indexOfFirstStop : indexOfLastQuestionMark;
+
+  const question = card.substring(0, splitIndex + 1);
+  const answer = card.substring(splitIndex + 1);
 
   return {
     question: question.trim(),
