@@ -8,13 +8,26 @@ type AnkiCSV = string;
 
 export type ParsingMode = "default" | "dash-separator";
 
-export function splitFileToCards(file: PlainTextFile): PlainTextCard[] {
+function splitFileToCardsDashSeparatorMode(file: PlainTextFile): PlainTextCard[] {
+  return file.split(/^\s*-+\s*$/gm).map(f => f.trim()).filter(v => !!v);
+}
+
+export function splitFileToCardsDefaultMode(file: PlainTextFile): PlainTextCard[] {
   return file.split("\n").map(f => f.trim()).filter(v => !!v).map(l => {
     if (["-", "*", "+"].includes(l[0])) {
       return l.substring(1).trim();
     }
     return l;
   });
+}
+
+export function splitFileToCards(file: PlainTextFile, mode: ParsingMode): PlainTextCard[] {
+  switch (mode) {
+    case "dash-separator":
+      return splitFileToCardsDashSeparatorMode(file);
+    case "default":
+      return splitFileToCardsDashSeparatorMode(file);
+  }
 }
 
 export function parsePlainTextCard(card: PlainTextCard): Card {
@@ -39,8 +52,8 @@ export function serializeCardsAsCSV(cards: Card[]): AnkiCSV {
   return cards.map(c => `"${c.question}";"${c.answer}"`).join("\n");
 }
 
-export function plain2anki(plain: PlainTextFile): AnkiCSV {
-  const plainTextCards = splitFileToCards(plain);
+export function plain2anki(plain: PlainTextFile, mode: ParsingMode): AnkiCSV {
+  const plainTextCards = splitFileToCards(plain, mode);
   const cards = parsePlainTextCards(plainTextCards);
   const csv = serializeCardsAsCSV(cards);
   return csv;
