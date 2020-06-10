@@ -34,7 +34,7 @@ function downloadFile(contents: string, filename: string) {
 
 downloadbutton.onclick = function onClickDownload() {
   const plaintext = plaininput.value;
-  const csv = plain2anki(plaintext);
+  const csv = plain2anki(plaintext, getParsingMode());
   downloadFile(csv, "cards.csv");
 }
   
