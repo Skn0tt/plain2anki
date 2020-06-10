@@ -6,6 +6,8 @@ type Card = {
 }
 type AnkiCSV = string;
 
+export type ParsingMode = "default" | "dash-separator";
+
 export function splitFileToCards(file: PlainTextFile): PlainTextCard[] {
   return file.split("\n").map(f => f.trim()).filter(v => !!v).map(l => {
     if (["-", "*", "+"].includes(l[0])) {
