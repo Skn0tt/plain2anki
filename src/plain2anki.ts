@@ -26,7 +26,7 @@ export function splitFileToCards(file: PlainTextFile, mode: ParsingMode): PlainT
     case "dash-separator":
       return splitFileToCardsDashSeparatorMode(file);
     case "default":
-      return splitFileToCardsDashSeparatorMode(file);
+      return splitFileToCardsDefaultMode(file);
   }
 }
 

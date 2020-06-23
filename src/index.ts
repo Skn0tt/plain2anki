@@ -16,7 +16,6 @@ const placeholders: Record<ParsingMode, string> = {
 function onChangeParsingMode() {
   const mode = getParsingMode();
   plaininput.placeholder = placeholders[mode];
-  console.log(plaininput.placeholder)
 }
 
 parsingModeSelect.onchange = onChangeParsingMode;
